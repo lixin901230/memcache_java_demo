@@ -31,7 +31,7 @@ public class MyCache {
 		
 		try {
 			//memcached服务地址列表，未使用magent配置集群时，可直接使用memcached服务地址进行测试（使用同一ip不同端口模拟多台memcached服务）
-			String [] memcachedServers ={"192.168.0.125:11211", "192.168.0.125:11212", "192.168.0.125:11213"};  
+			String [] memcachedServers ={"192.168.0.125:11211", "192.168.0.125:11212", "192.168.0.125:11213", "192.168.0.125:11214"};
 			
 			//使用magent集群后magent的服务地址（使用同一ip不同端口模拟多台magent服务）
 			String [] magentServers ={"192.168.0.125:12000", "192.168.0.125:13000"};
@@ -48,7 +48,7 @@ public class MyCache {
 			pool.setNagle(false);				//设置是否使用Nagle算法，因为我们的通讯数据量通常都比较大（相对TCP控制数据）而且要求响应及时，因此该值需要设置为false（默认是true）
 			pool.setSocketConnectTO(2000);		//设置socket的连接等待超时值
 			
-			pool.setWeights(new Integer[]{6});	//设置连接池可用cache服务器的权重，和server数组的位置一一对应
+			//pool.setWeights(new Integer[]{6});	//设置连接池可用cache服务器的权重，和server数组的位置一一对应
 			pool.setInitConn(6);				//设置开始时每个cache服务器的可用连接数
 			pool.setMinConn(6);  				//设置每个服务器最少可用连接数
 			pool.setMaxConn(200);  				//设置每个服务器最大可用连接数
