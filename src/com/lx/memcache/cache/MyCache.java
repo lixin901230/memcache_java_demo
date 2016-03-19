@@ -33,7 +33,7 @@ public class MyCache {
 			//memcached服务地址列表，未使用magent配置集群时，可直接使用memcached服务地址进行测试（使用同一ip不同端口模拟多台memcached服务）
 			String [] memcachedServers ={"192.168.0.125:11211", "192.168.0.125:11212", "192.168.0.125:11213", "192.168.0.125:11214"};
 			
-			//使用magent集群后magent的服务地址（使用同一ip不同端口模拟多台magent服务）
+			//使用magent集群memcached服务后magent的服务地址列表，这里使用了两组magent集群memcached服务来提供服务（使用同一ip不同端口模拟多台magent服务）
 			String [] magentServers ={"192.168.0.125:12000", "192.168.0.125:13000"};
 			
 			/* 初始化SockIOPool，管理memcached的连接池。这个方法有一个重载方法getInstance( String poolName )，每个poolName只构造一个SockIOPool实例。缺省构造的poolName是default。
